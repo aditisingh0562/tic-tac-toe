@@ -1,0 +1,106 @@
+/* Background */
+body {
+    background: cornflowerblue;
+    background-size: cover;
+    position: relative;
+}
+
+/* Add a light overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Light white overlay */
+    backdrop-filter: brightness(1.2); /* Increase brightness */
+    z-index: -1;
+}
+
+
+
+
+
+/* Game Board Styling */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal-width columns */
+    gap: 10px; /* Space between the cells */
+    width: 320px; /* Fixed width for the grid */
+    height: 320px; /* Fixed height for the grid */
+    margin: auto;
+}
+
+/* Individual Cell Styling */
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: #1b1b1b; /* Dark background for the cells */
+    border: 2px solid #0ff; /* Neon border */
+    color: #0ff; /* Neon text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 100px; /* Fixed height for the cells */
+    width: 100px; /* Fixed width for the cells */
+}
+
+/* Hover effect for cells */
+.cell:hover {
+    background-color: #333; /* Darken the background on hover */
+    box-shadow: 0px 0px 15px #0ff; /* Neon glowing effect */
+}
+
+
+/* Winning Cells */
+.winner {
+    background: #ff00ff;
+    color: white;
+    text-shadow: 0 0 15px white;
+    border: 2px solid white;
+}
+
+/* Status Bar */
+#status {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-shadow: 0 0 15px cyan;
+}
+
+/* Neon Button */
+button {
+    background: #00ffcc;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    color: white;
+}
+
+/* Final Winner Animation */
+.winner-animation {
+    font-size: 2.5rem;
+    color: gold;
+    text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.8);
+    animation: fadeInZoom 2s ease-in-out;
+}
+
+@keyframes fadeInZoom {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
